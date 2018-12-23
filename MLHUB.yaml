@@ -14,8 +14,9 @@ meta:
   url          : https://github.com/gjwgit/iris
   filename     : pool/main/i/iris/iris_2.1.0.mlm
   dependencies:
-    sh: atril
-    R: rpart, magrittr, caret, rpart.plot, RColorBrewer, rattle
+    sh    : atril
+    R     : rpart, magrittr, caret, rpart.plot, RColorBrewer, rattle
+    files : data.csv, demo.R, display.R, iris.csv, iris_rpart_caret_model.RData, print.R, README.md, score.R, train.R
 commands:
   demo    : Apply model to a sample dataset and evaluate.
   print   : View a textual summary of the model.
