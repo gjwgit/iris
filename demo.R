@@ -3,22 +3,22 @@
 #
 # Copyright 2018 Graham.Williams@togaware.com
 
-cat("==========================
-Predict Iris Plant Species
-==========================
+library(mlhub)
 
-Below we show the predictions of species using the pre-built model.
-
+mlcat("Predict Iris Plant Species",
+      "Below we predict the species of a plant using a pre-built model.
 ")
 
-# Load required packages.
+#-----------------------------------------------------------------------
+# Load required packages from local library into the R session.
+#-----------------------------------------------------------------------
 
 suppressMessages(
 {
-library(rpart)        # Model: decision tree rpart().
-library(magrittr)     # Data pipelines: %>% %<>% %T>% equals().
-library(dplyr)        # Wrangling: tbl_df(), group_by(), print().
-library(rattle)       # Support: normVarNames(), riskchart(), errorMatrix().
+  library(rpart)        # Model: decision tree rpart().
+  library(magrittr)     # Data pipelines: %>% %<>% %T>% equals().
+  library(dplyr)        # Wrangling: tbl_df(), group_by(), print().
+  library(rattle)       # Support: normVarNames(), riskchart(), errorMatrix().
 })
 
 #-----------------------------------------------------------------------
@@ -48,18 +48,11 @@ ev
 # Produce confusion matrix using Rattle.
 #-----------------------------------------------------------------------
 
-cat("\nPress Enter to continue on to the Confusion Matrix: ")
-invisible(readChar("stdin", 1))
-
-cat("
-================
-Confusion Matrix
-================
-
-A confusion matrix summarises the performance of the model on this
+mlask()
+mlcat("Confusion Matrix",
+      "A confusion matrix summarises the performance of the model on this
 dataset. The figures here are percentages, aggregating the actual versus
 predicted outcomes. The Error column represents the class error.
-
 ")
 
 per <- errorMatrix(ev$Actual, ev$Predicted) %T>% print()
@@ -70,9 +63,7 @@ cat(sprintf("\nOverall error: %.0f%%\n", 100-sum(diag(per), na.rm=TRUE)))
 
 # Calculate the averaged class error percentage.
 
-cat(sprintf("Average class error: %.0f%%\n", mean(per[,"Error"], na.rm=TRUE)))
+cat(sprintf("Average class error: %.0f%%\n",
+            mean(per[,"Error"], na.rm=TRUE)))
 
 # No risk chart as we have a multiclass outcome.
-
-cat("\nPress Enter to finish the demonstration: ")
-invisible(readChar("stdin", 1))
