@@ -3,7 +3,7 @@ meta:
   name         : iris
   title        : Classic iris plant species classifier.
   keywords     : r, iris, biology, decision tree, rpart, classification
-  version      : 2.1.2
+  version      : 2.1.3
   languages    : R
   modeller     : rpart
   type         : decision tree
@@ -15,7 +15,7 @@ meta:
   filename     : pool/main/i/iris/iris_2.1.0.mlm
   dependencies:
     sh    : atril
-    cran  : rpart, magrittr, caret, rpart.plot, RColorBrewer, rattle=5.2.8
+    cran  : rpart, magrittr, caret, rpart.plot, RColorBrewer, rattle=5.2.0
     files : data.csv, demo.R, display.R, iris.csv, iris_rpart_caret_model.RData, print.R, README.md, score.R, train.R
 commands:
   demo    : Apply model to a sample dataset and evaluate.
